@@ -1,8 +1,8 @@
 import express from 'express';
-import users from '../controllers/users';
+import bills from '../controllers/bills';
 
 const route = express.Router();
 
-route.post('/nid', users.checkId);
+route.get('/bills', bills.getAllBillings);
 
 export default route;

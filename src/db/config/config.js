@@ -1,25 +1,30 @@
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const config = {
-  "development": {
-    "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  development: {
+    username: "root",
+    password: null,
+    database: "openemr",
+    host: "127.0.0.1",
+    dialect: 'mysql',
+    operatorsAliases: false,
   },
-  "test": {
-    "username": "root",
-    "password": null,
-    "database": "database_test",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  test: {
+    username: process.env.db_username_test,
+    password: process.env.db_password_test,
+    database: 'ah_db_test',
+    host: 'localhost',
+    dialect: 'postgres',
   },
-  "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+  production: {
+    username: process.env.DATABASE_USERNAME,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,
+    host: process.env.DATABASE_HOST,
+    dialect: 'postgres',
+    operatorsAliases: false
   }
 };
 

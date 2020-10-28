@@ -20,10 +20,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes);
 
 app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the networth API route',
+  message: 'Welcome to the mobidoc-billing API route',
 }));
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 6666;
 
 app.listen(port, () => {
   console.log(`Server running at ${port}`);

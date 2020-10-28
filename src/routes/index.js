@@ -1,8 +1,8 @@
 import express from 'express';
-import users  from './users';
+import bills  from './bills';
 
 const router = express.Router();
 
-router.use('/api/users', users);
+router.use('/api/bills', bills);
 
 export default router;
