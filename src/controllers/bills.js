@@ -1,6 +1,5 @@
-import model from '../db/models';
+import dbConn  from '../db/lib/db';
 
-const { billing } = model;
 
 class BillingManager {
 
@@ -23,23 +22,24 @@ class BillingManager {
         
     }
 
-
-
     static async getAllBillings(req, res) {
         try {
-            console.log('\n\n\n\n\n', 'turi hano')
-            const findBilling = await billing.findAll();
-            console.log('\n\n\n\n\n', 'turi hano')
-            if (findBilling) {
-                return res.status(200).json({ total: findBilling.length, billings: findBilling });
-            }
-            return res.status(400).json({ message: "No Billing Found" });
+            dbConn.query('SELECT * FROM billing',function(err,rows)     {
+ 
+            if(err) {
+              return res.status(400).json({ message: err });
+
+            } else {
+                if (rows.length === 0) {
+                   return res.status(400).json({ message: 'No bills found' }); 
+                }
+                return res.status(200).json({message: 'Bills successfuly fetched', data: rows, total: rows.length });
+              }
+            });
         } catch (error) {
-            console.log('\n\n\n\n', error.message)
             return res.status(500).json({ error });
         }
     }
-
 }
 
 export default BillingManager;
