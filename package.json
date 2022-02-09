@@ -8,8 +8,8 @@
     "dev": "nodemon --exec babel-node ./src/app.js",
     "drop_tables": "sequelize db:migrate:undo:all",
     "create_tables": "sequelize db:migrate && sequelize db:seed:all",
-    "start": "node build/server.js",
-    "build": "yarn create_tables && babel src --out-dir build"
+    "start": "node build/app.js",
+    "build": "babel src --out-dir build"
   },
   "dependencies": {
     "@sendgrid/mail": "^7.2.1",
