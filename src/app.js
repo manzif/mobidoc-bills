@@ -19,10 +19,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(routes);
 
 app.get('*', (req, res) => res.status(200).send({
-  message: 'Welcome to the mobidoc-billing API route',
+  message: 'Welcome to the Dyanamic API route',
 }));
 
-const port = process.env.PORT || 6666;
+const port = process.env.PORT || 6000;
 
 app.listen(port, () => {
   console.log(`Server running at ${port}`);
